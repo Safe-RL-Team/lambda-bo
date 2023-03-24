@@ -1,4 +1,5 @@
-# LAMBDA
+# LAMBDA BO
+### Using Bayesian optimization to optimize LAMBDA's hyperparameters.
 <img width="100%" src="https://imgur.com/0G3VKle.gif"><img width="100%" src="https://imgur.com/zdyuRdN.gif">
 
 A repository for the implementation of the paper **Constrained Policy Optimization via Bayesian World Models** (Yarden As, Ilnura Usmanova, Sebastian Curi, Andreas Krause, ICLR 2022). Please see our [paper (arXiv)](https://arxiv.org/abs/2201.09802) for further details.
@@ -26,8 +27,10 @@ pip3 install .
 ```
 Run experiments:
 ```
-python3 experiments/train.py --log_dir results/point_goal2/314 --environment sgym_Safexp-PointGoal2-v0 --total_training_steps 1000000 --safety
+python3 experiments/train.py --log_dir results/point_goal2/314 --environment sgym_Safexp-PointGoal2-v0 --safety
 ```
+This automatically starts the Bayesian optimization procedure. The modified code is mainly located in `train.py`, where you can adjust which hyperparameters to optimize. The agent data of each individual run is stored in the `runs` directory. The respective plots can be found in the `plots` directory.
+
 Plot:
 ```
 python3 experiments/plot.py --data_path results/
